@@ -7,7 +7,6 @@ import Claim from '@/pages/Claim'
 import Create from '@/pages/Create'
 import { wagmiConfig } from './config/wagmi'
 import './index.css'
-import '@rainbow-me/rainbowkit/styles.css'
 
 const container = document.querySelector('#app')!
 const queryClient = new QueryClient()

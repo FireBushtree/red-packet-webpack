@@ -4,43 +4,43 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 const __dirname = path.resolve('./')
 
-const mode = 'development'
-const isProd = mode === 'production'
+export default (env, argv) => {
+  const isProd = argv.mode === 'production'
 
-export default {
-  cache: false,
-  mode,
-  entry: './src/main.tsx',
-  output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'styles/[name].[contenthash].css',
-    }),
-  ],
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
-    alias: {
-      '@': path.resolve(__dirname, 'src'),
+  return {
+    cache: false,
+    entry: './src/main.tsx',
+    output: {
+      filename: 'main.js',
+      path: path.resolve(__dirname, 'dist'),
     },
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: 'swc-loader',
-      },
-      {
-        test: /\.css$/i,
-        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'postcss-loader'],
-      },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        filename: 'index.html',
+      }),
+      new MiniCssExtractPlugin({
+        filename: 'styles/[name].[contenthash].css',
+      }),
     ],
-  },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx|ts|tsx)$/,
+          exclude: /node_modules/,
+          use: 'swc-loader',
+        },
+        {
+          test: /\.css$/i,
+          use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'postcss-loader'],
+        },
+      ],
+    },
+  }
 }

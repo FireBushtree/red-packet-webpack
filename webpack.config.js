@@ -14,6 +14,10 @@ export default (env, argv) => {
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    devServer: {
+      historyApiFallback: true,
+      port: 8080,
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',

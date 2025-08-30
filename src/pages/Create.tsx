@@ -1,3 +1,4 @@
+import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { useState } from 'react'
 import { useAccount } from 'wagmi'
 
@@ -7,8 +8,6 @@ export default function Create() {
   const [message, setMessage] = useState<string>()
 
   const { address, isConnected } = useAccount()
-
-  function connectWallet() {}
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -21,13 +20,7 @@ export default function Create() {
           ? (
               <div className="text-center">
                 <p className="text-gray-600 mb-4">请先连接您的 MetaMask 钱包</p>
-                <button
-                  type="button"
-                  onClick={connectWallet}
-                  className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors font-medium"
-                >
-                  连接 MetaMask
-                </button>
+                <ConnectButton />
               </div>
             )
           : (

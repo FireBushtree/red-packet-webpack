@@ -11,12 +11,15 @@ export default (env, argv) => {
     cache: false,
     entry: './src/main.tsx',
     output: {
+      publicPath: '/',
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-      historyApiFallback: true,
+      historyApiFallback: {
+      },
       port: 8080,
+      hot: true,
     },
     plugins: [
       new HtmlWebpackPlugin({

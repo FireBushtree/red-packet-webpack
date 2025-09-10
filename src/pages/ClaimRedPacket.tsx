@@ -1,7 +1,7 @@
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { RedPacket__factory } from '@/types/typechain-types'
+import { RedPacket__factory } from 'typechain-types'
 
 declare global {
   interface Window {

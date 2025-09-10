@@ -1,9 +1,9 @@
 module.exports = {
   testEnvironment: 'node',
-  roots: ['<rootDir>/test'],
+  roots: ['<rootDir>/tests'],
   testMatch: [
-    '<rootDir>/test/unit/**/*.test.{js,ts}',
-    '<rootDir>/test/unit/**/*.spec.{js,ts}',
+    '<rootDir>/tests/unit/**/*.test.{js,ts}',
+    '<rootDir>/tests/unit/**/*.spec.{js,ts}',
   ],
   collectCoverageFrom: [
     'src/**/*.{js,ts}',

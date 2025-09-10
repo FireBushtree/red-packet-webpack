@@ -25,6 +25,7 @@ export default {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      'typechain-types': path.resolve(__dirname, 'typechain-types'),
     },
   },
   module: {

@@ -9,7 +9,7 @@
   "keywords": [],
   "engines": {
     "node": "22",
-    "yarn": "1.22.19"
+    "npm": "10"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --mode=development",
